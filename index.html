@@ -3,7 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WTF — World Turned Fashion Editorial</title>
+    <title>W Fashion Gazette — World Turned Fashion</title>
+    <meta name="description" content="W Fashion Gazette — World Turned Fashion. An independent global fashion gazette covering beauty, street style, formalwear, gowns, artists, and editorial culture.">
+    <meta name="robots" content="index, follow">
+    <meta name="application-name" content="W Fashion Gazette">
+    <meta name="theme-color" content="#F5F5F7">
+    <link rel="canonical" href="https://wfashiongazette.com/">
+
+    <!-- Social sharing / Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="W Fashion Gazette">
+    <meta property="og:title" content="W Fashion Gazette — World Turned Fashion">
+    <meta property="og:description" content="An independent global fashion gazette covering beauty, street style, formalwear, gowns, artists, and editorial culture.">
+    <meta property="og:url" content="https://wfashiongazette.com/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=85">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="W Fashion Gazette — World Turned Fashion">
+    <meta name="twitter:description" content="An independent global fashion gazette covering beauty, street style, formalwear, gowns, artists, and editorial culture.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=85">
+
+    <!-- Structured data for search engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "W Fashion Gazette",
+      "alternateName": "WTF — World Turned Fashion",
+      "url": "https://wfashiongazette.com/",
+      "description": "An independent global fashion gazette covering beauty, street style, formalwear, gowns, artists, and editorial culture."
+    }
+    </script>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -388,7 +417,8 @@
                         <span class="tracking-wide group-hover:underline underline-offset-4">LinkedIn</span>
                     </a>
                 </div>
-                <p class="text-gray-500 pt-2">© 2026 WTF Magazine. All Rights Reserved.</p>
+                <p class="text-gray-500 pt-2"><a href="https://wfashiongazette.com/" class="hover:text-black dark:hover:text-white transition" target="_blank" rel="noopener noreferrer">wfashiongazette.com</a></p>
+                <p class="text-gray-500">© 2026 WTF Magazine. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -508,13 +538,14 @@ The goal is not to tell readers what to wear. It is to give them a sharper way t
 
         async function shareCurrentArticle() {
             const title = document.getElementById('modalTitle').innerText;
-            const shareData = { title, text: title + ' — WTF: World Turned Fashion', url: window.location.href };
+            const publicUrl = 'https://wfashiongazette.com/';
+            const shareData = { title, text: title + ' — WTF: World Turned Fashion', url: publicUrl };
             try {
                 if (navigator.share) {
                     await navigator.share(shareData);
                     showToast('Article shared');
                 } else if (navigator.clipboard) {
-                    await navigator.clipboard.writeText(window.location.href);
+                    await navigator.clipboard.writeText(publicUrl);
                     showToast('Article link copied to clipboard');
                 } else {
                     showToast('Copy the page URL to share this article');
